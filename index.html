@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <!--Link To Title -->
+        <title>Project</title>
+        <!-- Link To Materialize -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+        <!-- Link To Icon -->
+        <link rel="shortcut icon" href="/SoftwareBootcamp/MainProjects/Portfolio/justit.png" type="image/x-icon">
+        <!-- Link To Google Fonts -->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+        <style>
+            body {
+                background-color: lightgray;
+                text-align: center;
+            }
+
+            header div {
+            font-size: xx-large;
+            height: 60px;
+            }
+
+            main {
+            border: 3rem solid darkgray;
+            }
+
+            section {
+            padding: 15% 15% 15% 15%;
+            }
+
+            #mainHeaderTitle, #result, #footerTitle{
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: xx-large;
+            font-weight: 900;
+            }
+
+            footer a:hover {
+            background-color: rgb(23, 93, 146) !important;
+            border-radius: 10%;
+            }
+
+            #backMPage:hover {
+            color: lightblue;
+            }
+
+            a:visited, a {
+            color: white;
+            text-decoration: none;
+            }
+        </style>
+    </head>
+    <body>
+        <header>
+            <!-- Navbar w/ Title -->
+            <nav>
+                <div class="nav-wrapper black">
+                    <a href="#" class="brand-logo center">Age Calculator</a>
+                </div>
+            </nav>
+        </header>
+        <main>
+            <!-- Main Section -->
+            <section class="mainSection">
+                <div>
+                    <h1 id="mainHeading">Age Calculator</h1>
+                    <p><u>State your date of birth:</u></p>
+                </div>
+                <div>
+                    <input type="date" name="DOB" id="dobID">
+                    <a class="waves-effect waves-light btn-large" onclick="calculateAge()">Calculate</a>
+                    <p id="result"></p>
+                </div>
+            </section>
+        </main>
+        <!-- Footer -->
+        <footer class="page-footer black">
+            <div class="container">
+                <div class="row">
+                    <div class="col l6 s12">
+                        <h5 class="white-text" id="footerTitle">'Age Calculator'</h5>
+                        <p class="grey-text text-lighten-4">
+                            A web page designed with the purpose of honing my
+                            skills in JavaScript, HTML, and CSS.
+                            This is an Age Checker, presented with some attention to presentability too.
+                        </p>
+                    </div>
+                    <div class="col l4 offset-l2 s12">
+                    </div>
+                </div>
+            </div>
+            <div class="footer-copyright">
+                <div class="container"><p> © 2023 'Age Calculator' Copyright </p></div>
+            </div>
+        </footer>
+        <script>
+            function calculateAge() {
+    
+            var birthDate = new Date(document.getElementById("dobID").value);
+
+            // Get the current date
+            var currentDate = new Date();
+            
+            // Calculate the age
+            var age = currentDate.getFullYear() - birthDate.getFullYear();
+
+            // Check if the birthday hasn't occurred this year yet
+            if (currentDate.getMonth() < birthDate.getMonth() || (currentDate.getMonth() === birthDate.getMonth() && currentDate.getDate() < birthDate.getDate())) {
+                age--;
+            }
+                document.getElementById("result").innerHTML = 'You are ' + age + ' years old!';
+            };
+        </script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    </body>
+</html>
